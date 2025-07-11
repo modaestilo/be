@@ -411,10 +411,11 @@ button:hover {
   background-color: #76f526;
   color: #131aeb;
 }
+
 #bloqueCarrito.container {
-  position: fixed; /* Cambia de relative a fixed */
+  position: fixed;
   top: 0;
-  right: -100%; /* Oculto inicialmente */
+  right: 0;
   width: 420px;
   height: 100vh;
   background-color: #fffcfc;
@@ -422,16 +423,16 @@ button:hover {
   z-index: 9999;
   box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
   overflow-y: auto;
-  transition: right 0.3s ease;
-  border-radius: 0;
+  transition: transform 0.3s ease;
+  transform: translateX(100%); /* Oculto por defecto */
 }
 
 #bloqueCarrito.container.mostrar {
-  right: 0; /* Se desliza al frente */
+  transform: translateX(0); /* Visible cuando tiene .mostrar */
 }
 
-body.mostrar-carrito {
-  overflow: hidden; /* Evita scroll de fondo */
+#bloqueCarrito.container.oculto {
+  display: none;
 }
 
 .cerrar-carrito {
